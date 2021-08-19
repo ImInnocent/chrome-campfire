@@ -1,5 +1,8 @@
 const playButton = document.getElementById("playButton");
 const playButtonImg = document.getElementById("playButtonImg");
+
+const fullScreenButton = document.getElementById("fullScreenButton");
+
 const audio = document.getElementById("controls");
 
 playButton.onclick = () => {
@@ -11,4 +14,14 @@ playButton.onclick = () => {
     audio.pause();
     playButtonImg.src = "unmute.jpg"
   }
+}
+
+fullScreenButton.onclick = () => {
+  chrome.windows.getCurrent(w => {
+    if (w.state !== "fullscreen") {
+      chrome.windows.update(w.id, { state: "fullscreen" });
+    } else {
+      chrome.windows.update(w.id, { state: "normal" });
+    }
+  })
 }

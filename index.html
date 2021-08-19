@@ -10,21 +10,28 @@
         margin: 0;
       }
 
-      #playButton, #container, #center, #bg, #blur {
+      #buttonContainer, #container, #center, #bg, #blur {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
 
-      #playButton {
-        z-index: 10;
-        opacity: 0;
+      .button {
         width: 100px;
         height: 100px;
+        display: inline-block;
+        margin: 0 10px;
       }
 
-      #playButton:hover {
+      #buttonContainer {
+        z-index: 10;
+        opacity: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      #buttonContainer:hover {
         opacity: 1;
       }
 
@@ -33,7 +40,7 @@
         height: 100%;
       }
 
-      #playButtonImg {
+      .buttonImg {
         background-color: white;
         border-radius: 50px;
       }
@@ -68,8 +75,13 @@
   </head>
   <body>
     <!-- play button -->
-    <div id="playButton">
-      <img id="playButtonImg" class="max" src="unmute.jpg" />
+    <div id="buttonContainer">
+      <div class="button" id="playButton">
+        <img class="buttonImg max" id="playButtonImg" src="unmute.jpg" />
+      </div>
+      <div class="button" id="fullScreenButton">
+        <img class="buttonImg max" src="fullscreen.jpg" />
+      </div>
     </div>
     <!-- audio -->
     <audio id="controls" loop>
